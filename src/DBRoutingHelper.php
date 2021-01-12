@@ -1,6 +1,6 @@
 <?php
-namespace tualo\Office\DBViewer;
-use tualo\Office\Basic\TualoApplication;
+namespace Tualo\Office\DBViewer;
+use Tualo\Office\Basic\TualoApplication;
 
 class DBRoutingHelper {
 

@@ -1,9 +1,9 @@
 <?php
-namespace tualo\Office\DBViewer\Routes;
-use tualo\Office\Basic\TualoApplication as App;
-use tualo\Office\Basic\Route as BasicRoute;
-use tualo\Office\Basic\IRoute;
-use tualo\Office\DBViewer\DBRoutingHelper;
+namespace Tualo\Office\DBViewer\Routes;
+use Tualo\Office\Basic\TualoApplication as App;
+use Tualo\Office\Basic\Route as BasicRoute;
+use Tualo\Office\Basic\IRoute;
+use Tualo\Office\DBViewer\DBRoutingHelper;
 
 class Route implements IRoute{
     public static function register(){

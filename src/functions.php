@@ -1,5 +1,5 @@
 <?php
 
-if (class_exists("tualo\Office\DBViewer\Middlewares\Middleware")){ }
-if (class_exists("tualo\Office\DBViewer\Routes\Route")){ }
+if (class_exists("Tualo\Office\DBViewer\Middlewares\Middleware")){ }
+if (class_exists("Tualo\Office\DBViewer\Routes\Route")){ }
 
