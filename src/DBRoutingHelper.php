@@ -29,6 +29,7 @@ class DBRoutingHelper {
             if (
                 (strtolower(substr($s, 0, 6)) == 'select') ||
                 (strtolower(substr($s, 0, 4)) == 'show') ||
+                (strtolower(substr($s, 0, 4)) == 'with') ||
                 (strtolower(substr($s, 0, 5)) == 'check') ||
                 (strtolower(substr($s, 0, 6)) == 'repair') ||
                 (strtolower(substr($s, 0, 7)) == 'explain')
