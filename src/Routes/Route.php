@@ -8,12 +8,6 @@ use Tualo\Office\DBViewer\DBRoutingHelper;
 class Route implements IRoute{
     public static function register(){
 
-        BasicRoute::add('/dbviewer/(?P<file>[\/.\w\d\-\_]+)'.'.js',function($matches){
-            if (file_exists( dirname(__DIR__).'/js/'.$matches['file'].'.js') ){
-                App::etagFile( dirname(__DIR__).'/js/'.$matches['file'].'.js' , true);
-            }
-        },array('get'),false);
-
         BasicRoute::add('/dbviewer/query',function($matches){
 
             App::contenttype('application/json');

@@ -1,5 +1,4 @@
 <?php
 
-if (class_exists("Tualo\Office\DBViewer\Middlewares\Middleware")){ }
-if (class_exists("Tualo\Office\DBViewer\Routes\Route")){ }
-
+require "Routes\Route.php";
+require "Compiler.php";
