@@ -1,8 +1,8 @@
 
-Ext.define('TualoOffice.dbviewer.grid.Model', {
+Ext.define('Tualo.dbviewer.grid.Model', {
     extend: 'Ext.app.ViewModel',
     requires: [
-        'TualoOffice.dbviewer.grid.DataModel'
+        'Tualo.dbviewer.grid.DataModel'
     ],
     alias: 'viewmodel.tualodbgrid',
     formulas: {
@@ -16,7 +16,7 @@ Ext.define('TualoOffice.dbviewer.grid.Model', {
         remoteFilter: true,
         remoteSort: true,
         pageSize: 1000,
-        model: 'TualoOffice.dbviewer.grid.DataModel',
+        model: 'Tualo.dbviewer.grid.DataModel',
         listeners:{
           beforeload: 'onBeforeStoreLoad',
           load: 'onStoreLoad',

@@ -1,4 +1,4 @@
-Ext.define('TualoOffice.dbviewer.grid.DataModel', {
+Ext.define('Tualo.dbviewer.grid.DataModel', {
     extend: 'Ext.data.Model',
     fields: [
       { name: '__rowid__', type: 'number' }

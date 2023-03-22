@@ -1,4 +1,4 @@
-Ext.define('TualoOffice.dbviewer.tab.Controller', {
+Ext.define('Tualo.dbviewer.tab.Controller', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.dbviewer_tab',
     onRunQuery: function(){

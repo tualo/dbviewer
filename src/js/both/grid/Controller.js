@@ -1,4 +1,4 @@
-Ext.define('TualoOffice.dbviewer.grid.Controller', {
+Ext.define('Tualo.dbviewer.grid.Controller', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.tualodbgrid',
     onRenderView: function(){

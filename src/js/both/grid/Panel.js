@@ -1,8 +1,8 @@
-Ext.define('TualoOffice.dbviewer.grid.Panel', {
+Ext.define('Tualo.dbviewer.grid.Panel', {
     extend: 'Ext.grid.Grid',
     requires: [
-      'TualoOffice.dbviewer.grid.Controller',
-      'TualoOffice.dbviewer.grid.Model'
+      'Tualo.dbviewer.grid.Controller',
+      'Tualo.dbviewer.grid.Model'
     ],
 
     alias: 'widget.tualodbgrid',
