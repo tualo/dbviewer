@@ -2,8 +2,7 @@
 namespace Tualo\Office\DBViewer;
 use Tualo\Office\Basic\TualoApplication;
 
-class DBRoutingHelper {
-
+class DBRoutingHelper{
     public static function h_type2txt($type_id)
     {
         static $types;
@@ -18,21 +17,22 @@ class DBRoutingHelper {
         return array_key_exists($type_id, $types)? $types[$type_id] : NULL;
     }
     public static function request($db){
-        
-        $canRun = true;
+
+        $canRun = false;
         //$canRun = (TualoApplication::get('session')->typ == 'master') || (TualoApplication::get('session')->typ == 'localmaster');
-        if (!$canRun) throw new \Exception('Sie dürfen keine SQL-Anfragen ausführen');
+        //if (!$canRun) throw new \Exception('Sie dürfen keine SQL-Anfragen ausführen');
         $delimiter = isset($_REQUEST['delimiter']) ? $_REQUEST['delimiter'] : ';';
         $query = $_REQUEST['query'];
         $s = trim(chop($query));
         if (strlen($s) > 6) {
             if (
+                
                 (strtolower(substr($s, 0, 6)) == 'select') ||
                 (strtolower(substr($s, 0, 4)) == 'show') ||
-                (strtolower(substr($s, 0, 4)) == 'with') ||
                 (strtolower(substr($s, 0, 5)) == 'check') ||
                 (strtolower(substr($s, 0, 6)) == 'repair') ||
-                (strtolower(substr($s, 0, 7)) == 'explain')
+                (strtolower(substr($s, 0, 7)) == 'explain')||
+                (strtolower(substr($s, 0, 4)) == 'with')
             ) {
                 $sql_splitted = explode($delimiter, $query);
                 $query = $sql_splitted[0];
@@ -76,6 +76,7 @@ class DBRoutingHelper {
                     $rs = $db->execute($query.' '.$order_by);
                     $resultdata = $rs->toArray('');
                     $rs->unload();
+                    TualoApplication::result('data',$resultdata);
                     TualoApplication::result('total', count( TualoApplication::result('data') ) );
                 }
 
@@ -129,7 +130,7 @@ class DBRoutingHelper {
                     'idProperty' => '__rowid__',
                     'messageProperty' => 'msg'
                 ));
-                
+
                 TualoApplication::result('success',true);
             }else{
                 $sql_a = explode($delimiter, $query);
@@ -168,8 +169,29 @@ class DBRoutingHelper {
                     if (trim(chop($sql)) != '') {
                         try {
                             if ($db->execute($sql)) {
-                                ++$total;
-                                $results[] = array('id' => $total, 't' => 'Statement executed successfuly');
+
+                                $results[] = array('id' => $total++, 't' => $db->last_sql);
+                                $results[] = array('id' => $total++, 't' => 'Statement executed successfuly');
+
+
+                                $warn = $db->mysqli->get_warnings();
+                                while ($warn!==false){
+                                        $results[]=['id' => $total++, 't' => $warn->getMessage()];
+                                        $warn=$warn->next();
+
+                                }
+
+                                $max=100;
+                                $pos=1;
+                                while($db->mysqli->more_results()){
+                                    $db->mysqli->next_result();
+                                    $res = $db->mysqli->use_result();
+                                    if ($res!==false) $results[] = array('id' => $total++, 't' => json_encode($res->fetch_assoc()) );
+                                    $pos++;
+                                    if ($pos>$max) break;
+                                }
+
+                                            
                             } else {
                                 ++$total;
                                 $results[] = array('id' => $total,              't' => 'Error while executing');
@@ -183,9 +205,7 @@ class DBRoutingHelper {
                 TualoApplication::result('data', $results);
                 TualoApplication::result('total', $total);
                 TualoApplication::result('success', true);
-                
             }
-            
         }
     }
 }

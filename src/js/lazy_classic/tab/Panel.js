@@ -1,9 +1,9 @@
-Ext.define('Tualo.dbviewer.tab.Panel', {
+Ext.define('Tualo.dbviewer.lazy.tab.Panel', {
     extend: 'Ext.panel.Panel',
     xtype: 'dbviewer_tab',
     requires: [
-        'Tualo.dbviewer.grid.Panel',
-        'Tualo.dbviewer.tab.Controller'
+        'Tualo.dbviewer.lazy.views.Grid',
+        'Tualo.dbviewer.lazy.tab.Controller'
     ],
     layout: {
         type: 'vbox',

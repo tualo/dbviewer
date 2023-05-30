@@ -1,9 +1,10 @@
 Ext.define('Tualo.dbviewer.view.Panel', {
-    extend: 'Ext.tab.Panel',
+    extend: 'Ext.Panel',
     xtype: 'dbviewer_panel',
+    /*
     requires: [
         
-        'Tualo.dbviewer.tab.Panel'
+        // 'Tualo.dbviewer.tab.Panel'
     ],
     //controller: 'dashboard_main',
     layout: 'card',
@@ -11,7 +12,7 @@ Ext.define('Tualo.dbviewer.view.Panel', {
     //    initialize: 'onInitialize'
     },
     items: [
-        /*
+         
         {
             xtype : 'toolbar',
             docked: 'left',
@@ -31,12 +32,13 @@ Ext.define('Tualo.dbviewer.view.Panel', {
                 }  
             ]
         },
-        */
+       
         {
             xtype: 'dbviewer_tab',
             closable: false,
             title: 'View 1'
         }
     ]
+     */
 });
 

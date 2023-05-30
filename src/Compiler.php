@@ -10,3 +10,4 @@ class Compiler implements ICompiler {
         return CompilerHelper::getFiles(__DIR__,'dbviewer',10003);
     }
 }
+
