@@ -1,4 +1,14 @@
 Ext.define('Tualo.routes.DBViewer',{
+    statics: {
+        load: async function() {
+            return [
+                {
+                    name: 'dbviewer',
+                    path: '#dbviewer'
+                }
+            ]
+        }
+    },
     url: 'dbviewer',
     handler: {
         action: function(token){
@@ -16,6 +26,13 @@ Ext.define('Tualo.routes.DBViewer',{
     }
 });
 Ext.define('Tualo.routes.DBViewerTab',{
+    statics: {
+        load: async function() {
+            return [
+                
+            ]
+        }
+    },
     url: 'dbviewer/:id',
     handler: {
         action: function(token){
