@@ -77,7 +77,7 @@ class DBRoutingHelper{
                     $resultdata = $rs->toArray('');
                     $rs->unload();
                     TualoApplication::result('data',$resultdata);
-                    TualoApplication::result('total', count( TualoApplication::result('data') ) );
+                    TualoApplication::result('total', count( (array)TualoApplication::result('data') ) );
                 }
 
 
