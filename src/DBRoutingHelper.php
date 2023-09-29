@@ -86,8 +86,8 @@ class DBRoutingHelper{
                     foreach ($resultdata as &$row) {
                         foreach ($row as $key => $value) {
                             if (is_string($value)){
-                                if (strlen($value)>9048){
-                                    $row[$key]=substr($value,0,9048);
+                                if (strlen($value)>10249048){
+                                    $row[$key]=substr($value,0,10249048);
                                 }
                             }
                         }
