@@ -23,7 +23,7 @@ Ext.define('Tualo.dbviewer.lazy.views.DBPanel', {
                 
                 {
                     xtype: 'tualodbaddquerytab',
-                    closable: false
+                    closable: true
                 }
             ]
         }
