@@ -12,6 +12,7 @@ Ext.define('Tualo.dbviewer.lazy.views.Grid', {
   bind: {
     store: '{aggregate}'
   },
+  title: 'Grid',
   /*
 	dockedItems: [{
       xtype: 'pagingtoolbar',
@@ -29,9 +30,9 @@ Ext.define('Tualo.dbviewer.lazy.views.Grid', {
   ],
 	plugins: [
 		{
-			//exportHeader: true,
-			//ptype: 'tualoclipboard'
-			ptype: 'clipboard'
+			exportHeader: true,
+			ptype: 'tualoclipboard'
+			//ptype: 'clipboard'
 		}
 	],
 	selModel: {
@@ -39,7 +40,7 @@ Ext.define('Tualo.dbviewer.lazy.views.Grid', {
 		 mode: 'MULTI'
   },
 	reconfigureStore: function(config){
-		console.log('reconfigureStore',config);
+		console.log('reconfigureStore-----------',config);
 		this.controller.reconfigureStore(config);
 	}
 });
