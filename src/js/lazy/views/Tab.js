@@ -1,11 +1,15 @@
 Ext.define('Tualo.dbviewer.lazy.views.Tab', {
-	extend: 'Ext.panel.Panel',
+	extend: 'Ext.Panel',
 	requires: [
 		/*'Tualo.dbviewer.models.Grid',*/
-		'Tualo.dbviewer.lazy.controller.Tab'
+		'Tualo.dbviewer.lazy.controller.Tab',
+		'Tualo.dbviewer.lazy.views.Grid'
 	],
-	layout: 'fit',
-	xtype: 'tualodbquerytab',
+	layout: {
+        type: 'vbox',
+		align: 'stretch'
+    },
+	alias: 'widget.tualodbquerytab',
 	controller: 'cmp_db_tab',
 	mixins: [
 		'Ext.mixin.Keyboard'
@@ -13,9 +17,10 @@ Ext.define('Tualo.dbviewer.lazy.views.Tab', {
 	keyMap: {
 		"CmdOrCtrl+X": 'onRunQueryKeyMap',
 	},
-	dockedItems: [{
+	items: [{
 		xtype: 'toolbar',
-		dock: 'top',
+		//docked: 'top',
+		// height: 100,
 		items: [
 
 			{
@@ -23,7 +28,7 @@ Ext.define('Tualo.dbviewer.lazy.views.Tab', {
 				text: 'Trenner:'
 			},
 			{
-				xtype: 'tbspacer'
+				xtype: 'tualospacer'
 			},
 			{
 				xtype: 'combobox',
@@ -39,7 +44,7 @@ Ext.define('Tualo.dbviewer.lazy.views.Tab', {
 				}
 			},
 			{
-				xtype: 'tbspacer',
+				xtype: 'tualospacer',
 				width: 25
 			},
 			{
@@ -59,26 +64,28 @@ Ext.define('Tualo.dbviewer.lazy.views.Tab', {
 		],
 	},
 	{
-		dock: 'top',
+		//docked: 'top',
 		border: true,
-		"xtype": "tualocodesql",
+		xtype: "tualocodesql",
 		height: 200,
+		//minHeight: 200,
 		reference: 'query',
 		//fitParent: true,
 
-	}
-
-	],
-	items: [{
-		reference: 'grid',
-		//xtype: 'panel',
-		xtype: 'tualodbgrid',
-		
-		listeners: {
-			beforeload: 'onBeforeStoreLoad'
+	},{
+		xtype: 'panel',
+		flex: 1,
+		layout: 'fit',
+		items: [	{
+			reference: 'grid',
+			// xtype: 'grid',
+			xtype: 'tualodbgrid',
+			// html: 'Grid',
+			listeners: {
+				beforeload: 'onBeforeStoreLoad'
+			}
 		}
-	}
-
-	]
+		]
+	}],
 });
 

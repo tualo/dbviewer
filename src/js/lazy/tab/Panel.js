@@ -1,6 +1,6 @@
 Ext.define('Tualo.dbviewer.lazy.tab.Panel', {
-    extend: 'Ext.panel.Panel',
-    xtype: 'dbviewer_tab',
+    extend: 'Ext.Panel',
+    alias: 'widget.dbviewer_tab',
     requires: [
         'Tualo.dbviewer.lazy.views.Grid',
         'Tualo.dbviewer.lazy.tab.Controller'

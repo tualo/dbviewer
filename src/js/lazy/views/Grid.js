@@ -1,43 +1,41 @@
 Ext.define('Tualo.dbviewer.lazy.views.Grid', {
-  extend: 'Ext.grid.Panel',
+  extend: 'Tualo.grid.Panel',//.Panel',
   requires: [
     'Tualo.dbviewer.lazy.models.Grid',
     'Tualo.dbviewer.lazy.controller.Grid'
   ],
 	alias: 'widget.tualodbgrid',
-  controller: 'tualodbgridcontroller',
+  controller: 'tualodbgrid',
 	viewModel: {
-		type: 'tualodbgridmodel'
+		type: 'tualodbgrid'
 	},
   bind: {
     store: '{aggregate}'
   },
-  /*
-	dockedItems: [{
-      xtype: 'pagingtoolbar',
-			bind: {
-		    store: '{aggregate}'
-		  },
-      dock: 'bottom',
-      displayInfo: true
-  }],*/
+  
   columns: [
     {
       header: 'ID',
       dataIndex: 'id'
     }
   ],
-	plugins: [
+
+  plugins: [
 		{
-			// exportHeader: true,
+			exportHeader: true,
+			type: 'clipboard',
 			ptype: 'tualoclipboard'
-			//ptype: 'clipboard'
 		}
 	],
 	selModel: {
      type: 'spreadsheet',
 		 mode: 'MULTI'
   },
+  selectable: {
+    rows: false,
+    cells: true
+  },
+
 	reconfigureStore: function(config){
 		console.log('reconfigureStore-----------',config);
 		this.controller.reconfigureStore(config);

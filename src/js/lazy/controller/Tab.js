@@ -20,7 +20,7 @@ Ext.define('Tualo.dbviewer.lazy.controller.Tab', {
     var queryField = this.lookupReference('query');
     this.view.up().setTitle(queryField.getValue());
     Tualo.Ajax.download({
-      showWait: true,
+      // showWait: true,
       url: './dbviewer/export',
       timeout: 300000,
       params:{

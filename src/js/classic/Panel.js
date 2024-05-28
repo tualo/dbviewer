@@ -12,6 +12,7 @@ Ext.define('Tualo.dbviewer.view.Panel', {
     layout: 'card',
     listeners: {
       boxready: function(me){
+        console.log('boxready',me);
         Ext.Loader.setPath('Tualo.dbviewer.lazy', './jsdbviewer');
         this.myPanel = Ext.create('Tualo.dbviewer.lazy.views.DBPanel',{});
         this.add(this.myPanel);

@@ -9,7 +9,7 @@ Ext.define('Tualo.dbviewer.lazy.models.GridModel', {
 
 Ext.define('Tualo.dbviewer.lazy.models.Grid', {
   extend: 'Ext.app.ViewModel',
-  alias: 'viewmodel.tualodbgridmodel',
+  alias: 'viewmodel.tualodbgrid',
   formulas: {
 
   },

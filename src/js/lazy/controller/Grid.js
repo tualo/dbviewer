@@ -1,6 +1,6 @@
 Ext.define('Tualo.dbviewer.lazy.controller.Grid', {
   extend: 'Ext.app.ViewController',
-  alias: 'controller.tualodbgridcontroller',
+  alias: 'controller.tualodbgrid',
   onRenderView: function(){
 
   },
@@ -33,13 +33,29 @@ Ext.define('Tualo.dbviewer.lazy.controller.Grid', {
   },
 
   reconfigureColumns: function (columns) {
-  	var me = this.view;
+  	var me = this;
+    // window.me = me;
+    console.log('reconfigureColumns',columns);
   	if (columns) {
-  		me.headerCt.removeAll();
-  		columns = this.reconfigureRenderer(columns);
-  		me.headerCt.add(columns);
+      if (Ext.isModern){
+        me.getView().getHeaderContainer().removeAll();
+        columns = this.reconfigureRenderer(columns);
+        me.getView().getHeaderContainer().add(columns);
+        me.getView().refresh();
+      }else{
+        console.log('reconfigureColumns','classic');
+
+        
+        me.getView().headerCt.removeAll();
+        columns = this.reconfigureRenderer(columns);
+        me.getView().headerCt.add(columns); 
+        //me.view.refresh();
+        
+      }
+      
   	}
-  	me.getView().refresh();
+    console.log('reconfigureColumns','refresh');
+  	//
   },
   reconfigureStore: function(config){
     console.log('reconfigureStore',config );
