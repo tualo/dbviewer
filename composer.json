@@ -17,6 +17,6 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "tualo/tualo-ext-shim": "*",
+        "tualo/tualo-ext-shim": "*"
     }
 }
