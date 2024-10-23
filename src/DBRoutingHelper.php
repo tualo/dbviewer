@@ -19,7 +19,8 @@ class DBRoutingHelper{
     public static function request($db){
 
         $canRun = false;
-        $canRun = (TualoApplication::get('session')->typ == 'master') || (TualoApplication::get('session')->typ == 'localmaster');
+        
+        $canRun = ($_SESSION['tualoapplication']['typ'] == 'master') || ($_SESSION['tualoapplication']['typ'] == 'localmaster');
         if (!$canRun) throw new \Exception('Sie dürfen keine SQL-Anfragen ausführen');
         $delimiter = isset($_REQUEST['delimiter']) ? $_REQUEST['delimiter'] : ';';
         $query = $_REQUEST['query'];
