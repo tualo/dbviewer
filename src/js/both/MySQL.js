@@ -12,7 +12,7 @@ Ext.define('Ext.tualo.field.Mysqli_type_bit', {extend: 'Ext.data.field.Boolean',
 
 
 Ext.define('Ext.tualo.field.Mysqli_type_null', {extend: 'Ext.data.field.Date',alias: 'data.field.tualo_mysqli_type_null'});
-Ext.define('Ext.tualo.field.Mysqli_type_timestamp', {extend: 'Ext.data.field.Date',alias: 'data.field.tualo_mysqli_type_timestamp', dateFormat: 'Y-m-d H:i:s'});
+Ext.define('Ext.tualo.field.Mysqli_type_timestamp', {extend: 'Ext.data.field.Date',alias: 'data.field.tualo_mysqli_type_timestamp', dateFormat: 'Y-m-d H:i:s.u'});
 Ext.define('Ext.tualo.field.Mysqli_type_date', {extend: 'Ext.data.field.Date',alias: 'data.field.tualo_mysqli_type_date',dateFormat: 'Y-m-d'});
 Ext.define('Ext.tualo.field.Mysqli_type_time', {extend: 'Ext.data.field.Date',alias: 'data.field.tualo_mysqli_type_time',dateFormat: 'H:i:s'});
 Ext.define('Ext.tualo.field.Mysqli_type_datetime', {extend: 'Ext.data.field.Date',alias: 'data.field.tualo_mysqli_type_datetime',dateFormat: 'Y-m-d H:i:s'});
