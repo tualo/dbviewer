@@ -20,7 +20,6 @@ class Route implements IRoute
             $db = App::get('session')->getDB();
             try {
                 error_reporting(E_ALL);
-                ini_set('display_errors', 'on');
                 ini_set('memory_limit', '8096M');
                 DBRoutingHelper::request($db);
             } catch (\Exception $e) {
@@ -36,7 +35,6 @@ class Route implements IRoute
             $db = App::get('session')->getDB();
             try {
                 error_reporting(E_ALL);
-                ini_set('display_errors', 'on');
                 ini_set('memory_limit', '8096M');
                 set_time_limit(300);
                 DBRoutingHelper::request($db);
