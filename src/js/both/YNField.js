@@ -1,4 +1,4 @@
-Ext.define('Tualo.field.YNField', {
+Ext.define('Ext.tualo.field.YNField', {
     extend: 'Ext.data.field.Boolean',
     alias: 'data.field.tualo_ynfield',
     convert: function (v, record) {
