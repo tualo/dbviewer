@@ -9,7 +9,7 @@ use Tualo\Office\DBViewer\DBRoutingHelper;
 use Ramsey\Uuid\Uuid;
 use Tualo\Office\DS\DSExporterHelper;
 
-class Route implements IRoute
+class Route extends \Tualo\Office\Basic\RouteWrapper
 {
     public static function register()
     {
