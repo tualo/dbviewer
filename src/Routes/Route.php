@@ -11,6 +11,11 @@ use Tualo\Office\DS\DSExporterHelper;
 
 class Route extends \Tualo\Office\Basic\RouteWrapper
 {
+    public static function scope(): string
+    {
+        return 'dbviewer.query';
+    }
+
     public static function register()
     {
 
