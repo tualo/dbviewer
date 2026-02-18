@@ -66,4 +66,3 @@ Ext.define('TualoOffice.dbviewer.column.Mysqli_type_char', { extend: 'Ext.grid.c
 Ext.define('TualoOffice.dbviewer.column.Mysqli_type_interval', { extend: 'Ext.grid.column.Column', alias: 'widget.tualo_mysqli_type_interval' });
 Ext.define('TualoOffice.dbviewer.column.Mysqli_type_geometry', { extend: 'Ext.grid.column.Column', alias: 'widget.tualo_mysqli_type_geometry' });
 Ext.define('TualoOffice.dbviewer.column.Mysqli_type_json', { extend: 'Ext.grid.column.Column', alias: 'widget.tualo_mysqli_type_json' });
-
