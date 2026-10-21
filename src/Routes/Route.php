@@ -4,16 +4,16 @@ namespace Tualo\Office\DBViewer\Routes;
 
 use Tualo\Office\Basic\TualoApplication as App;
 use Tualo\Office\Basic\Route as BasicRoute;
-use Tualo\Office\Basic\IRoute;
 use Tualo\Office\DBViewer\DBRoutingHelper;
 use Ramsey\Uuid\Uuid;
 use Tualo\Office\DS\DSExporterHelper;
+use \Tualo\Office\DBViewer\Scopes\DBViewerScope;
 
 class Route extends \Tualo\Office\Basic\RouteWrapper
 {
     public static function scope(): string
     {
-        return 'dbviewer.query';
+        return DBViewerScope::identifier();
     }
 
     public static function register()
@@ -68,7 +68,7 @@ class Route extends \Tualo\Office\Basic\RouteWrapper
                 foreach ($metaColumns as $c) {
                     $columns[$c['dataIndex']] = array('label' => $c['text']);
                 };
-                DSExporterHelper::exportDataToXSLX($db, $tablename, $columns, $data, App::get('tempPath') . '/', $filename, $columns);
+                DSExporterHelper::exportDataToXSLX($db, $tablename, $columns, $data, (string) App::get('tempPath') . '/', $filename, $columns);
 
                 App::result('data', false);
                 App::result('metaData', false);
